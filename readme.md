@@ -1,8 +1,6 @@
-# Vue Clock
+# Vue Clock with HTTP Code Phrase
 
-> Simple clock component using vue.js
-
-![](screenshot.png)
+> Simple clock component using vue.js including the matching http phrase
 
 ## Build
 
@@ -16,4 +14,6 @@ npm run dev
 
 ## License
 
-MIT © [Dang Van Thanh](http://dangthanh.org)
+MIT 
+
+Forked From MIT © [Dang Van Thanh](http://dangthanh.org)
