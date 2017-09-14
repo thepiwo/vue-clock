@@ -382,7 +382,7 @@ export function getZeroPad(n) {
     return (parseInt(n, 10) >= 10 ? '' : '0') + n
 }
 
-export function fetchStatusCode(code) {
+export function fetchStatusPhrase(code) {
     const statusCode = statusCodes.filter(status => status.code === code);
-    return statusCode.length === 1 ? statusCode[0] : null;
+    return statusCode.length === 1 ? statusCode[0].phrase : '';
 }

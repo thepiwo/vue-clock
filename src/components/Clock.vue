@@ -4,7 +4,10 @@
             <span class="clock__hourtime">{{hourtime}}</span>
             {{hours}}
         </div>
-        <div class="clock__minutes">{{minutes}}</div>
+        <div class="clock__minutes">
+            {{minutes}}
+            <span class="clock__seconds">{{seconds}}</span>
+        </div>
         <div v-show="statusPhrase !== ''" class="clock__statusphrase">
             {{statusPhrase}}
         </div>
@@ -12,20 +15,21 @@
 </template>
 
 <script>
-    import {getHourTime, getZeroPad, fetchStatusCode} from '../filters'
+    import {getHourTime, getZeroPad, fetchStatusPhrase} from '../filters'
 
     export default {
         data() {
             return {
                 hours: '',
                 minutes: '',
+                seconds: '',
                 hourtime: '',
                 statusPhrase: ''
             }
         },
         mounted() {
             this.updateDateTime();
-            setInterval(this.updateDateTime(), 10000)
+            setInterval(this.updateDateTime, 1000)
         },
         methods: {
             updateDateTime() {
@@ -34,8 +38,9 @@
                 this.hours = now.getHours();
                 this.minutes = getZeroPad(now.getMinutes());
                 this.hourtime = getHourTime(this.hours);
+                this.seconds = now.getSeconds();
                 this.hours = this.hours % 12 || 12;
-                this.statusPhrase = fetchStatusCode(`${this.hours}${this.minutes}`).phrase
+                this.statusPhrase = fetchStatusPhrase(`${this.hours}${this.minutes}`)
             }
         }
     }
@@ -103,6 +108,13 @@
         position: absolute;
         top: 2px;
         left: 8px;
+    }
+
+    .clock__seconds {
+        font-size: 1rem;
+        position: absolute;
+        top: 2px;
+        right: 8px;
     }
 
     .clock__statusphrase {
