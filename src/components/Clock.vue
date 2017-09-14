@@ -24,7 +24,8 @@
             }
         },
         mounted() {
-            setInterval(this.updateDateTime, 10000)
+            this.updateDateTime();
+            setInterval(this.updateDateTime(), 10000)
         },
         methods: {
             updateDateTime() {
