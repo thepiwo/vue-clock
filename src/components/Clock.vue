@@ -1,15 +1,17 @@
 <template>
-    <div class="clock">
-        <div class="clock__hours">
-            <span class="clock__hourtime">{{hourtime}}</span>
-            {{hours}}
-        </div>
-        <div class="clock__minutes">
-            {{minutes}}
-            <span class="clock__seconds">{{seconds}}</span>
-        </div>
-        <div v-show="statusPhrase !== ''" class="clock__statusphrase">
-            {{statusPhrase}}
+    <div class="container">
+        <div class="clock">
+            <div class="clock__hours">
+                <span class="clock__hourtime">{{hourtime}}</span>
+                {{hours}}
+            </div>
+            <div class="clock__minutes">
+                {{minutes}}
+                <span class="clock__seconds">{{seconds}}</span>
+            </div>
+            <div v-show="statusPhrase !== ''" class="clock__statusphrase">
+                {{statusPhrase}}
+            </div>
         </div>
     </div>
 </template>
